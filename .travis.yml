@@ -5,7 +5,15 @@ sudo: required
 services:
 - docker
 
-script: gradle check
+install:
+# - docker build -t myContainer .
+ - docker build https://github.com/AlvaroDazaQuiroga/TestingDocker.git#container:docker
+
+#script:
+# - ./run 'docker build -t test . && docker run test'
+script:
+  - docker exec -ti myContainer "BitCountingTest.java"
+
 branches:
 only: master
 
