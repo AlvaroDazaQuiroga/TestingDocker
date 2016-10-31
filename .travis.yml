@@ -6,9 +6,7 @@ services:
 - docker
 
 install:
-#- curl -sLo - http://j.mp/install-travis-docker | sh -xe
-  - docker build -t blog .
-  - docker run -d -p 127.0.0.1:80:80 --name blog blog
+ - curl -sLo - http://j.mp/install-travis-docker | sh -xe
 
 #script:
 # - ./run 'docker build -t test . && docker run test'
