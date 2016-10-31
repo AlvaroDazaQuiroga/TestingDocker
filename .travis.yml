@@ -6,12 +6,12 @@ services:
 - docker
 
 install:
- - curl -sLo - http://j.mp/install-travis-docker | sh -xe
+ - docker build -t myContainer .
 
 #script:
 # - ./run 'docker build -t test . && docker run test'
 script:
-  - docker ps | grep -q blog
+  - docker exec -ti myContainer "BitCountingTest.java"
 
 branches:
 only: master
