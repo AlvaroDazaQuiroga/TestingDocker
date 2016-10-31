@@ -5,7 +5,13 @@ sudo: required
 services:
 - docker
 
-script: gradle check
+install:
+- curl -sLo - http://j.mp/install-travis-docker | sh -xe
+
+script:
+    gradle check
+ - ./run 'docker build -t test . && docker run test'
+ 
 branches:
 only: master
 
