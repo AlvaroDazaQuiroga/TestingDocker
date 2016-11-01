@@ -5,14 +5,21 @@ sudo: required
 services:
 - docker
 
-install:
+before_install:
+- docker pull selenium/base
+- docker ps -a
+- docker run -d - p selenium-base C:TestDocker
+
+
+#install:
 # - docker build -t myContainer .
- - docker build https://github.com/AlvaroDazaQuiroga/TestingDocker.git#container:docker
+# - docker build https://github.com/AlvaroDazaQuiroga/TestingDocker.git#container:docker
+
 
 #script:
 # - ./run 'docker build -t test . && docker run test'
-script:
-  - docker exec -ti myContainer "BitCountingTest.java"
+#script:
+#  - docker exec -ti myContainer "BitCountingTest.java"
 
 branches:
 only: master
