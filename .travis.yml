@@ -5,7 +5,7 @@ sudo: required
 services:
 - docker
 
-before_install:
+install:
 - docker pull selenium/base
 - docker ps -a
 - docker run -d - p selenium-base C:TestDocker
